@@ -4,6 +4,9 @@ A front-end app for managing to-do lists, built with React, Redux Toolkit, and V
 
 ## Features
 
+- **Navigation bar** with three pages: To Do, Contact, and Calendar (hash routes `#/todo`, `#/contact`, `#/calendar`)
+- **Calendar:** month view of every task with a due date across all lists; click a task to jump to its list
+- **Contact:** validated contact form (front end only; no messages are sent yet)
 - **Lists:** create, switch between, rename (inline), and delete multiple to-do lists
 - **Items:** create, view, edit inline (edit icon or double-click), complete, and delete items
 - Optional due dates (shown as "Today" / "Overdue") and color-coded priority levels
@@ -26,6 +29,10 @@ npm run preview  # serve the production build
 
 - `src/todosSlice.js` – Redux slice with list/item CRUD reducers and selectors
 - `src/store.js` – store setup, `localStorage` persistence, cross-tab sync
-- `src/App.jsx` – lists sidebar, item form, filters, search
+- `src/App.jsx` – top-level layout and hash-based page routing
+- `src/NavBar.jsx` – top navigation bar
+- `src/TodoPage.jsx` – lists sidebar, item form, filters, search
+- `src/CalendarPage.jsx` – monthly calendar of tasks by due date
+- `src/ContactPage.jsx` – contact form
 - `src/TodoItem.jsx` – single item with inline editing
 - `src/Icon.jsx` – inline SVG icon set
