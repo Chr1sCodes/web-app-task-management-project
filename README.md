@@ -14,26 +14,7 @@ A front-end app for managing to-do lists, built with React, Redux Toolkit, and V
 - Filter by All / Incomplete / Completed, search, and clear completed items
 - Responsive layout with a light/dark mode toggle in the navigation bar (defaults to your system setting, remembers your choice); syncs across open browser tabs
 
-## Running
-
-Requires Node.js.
-
-```bash
-npm install
-npm run dev      # start dev server at http://localhost:5173
-npm run build    # production build to dist/
-npm run preview  # serve the production build
-```
-
-## Structure
-
-- `src/todosSlice.js` – Redux slice with list/item CRUD reducers and selectors
-- `src/store.js` – store setup, `localStorage` persistence, cross-tab sync
-- `src/App.jsx` – top-level layout and hash-based page routing
-- `src/NavBar.jsx` – top navigation bar with theme toggle
-- `src/useTheme.js` – light/dark theme state and persistence
-- `src/TodoPage.jsx` – lists sidebar, item form, filters, search
-- `src/CalendarPage.jsx` – monthly calendar of tasks by due date
-- `src/ContactPage.jsx` – contact form
-- `src/TodoItem.jsx` – single item with inline editing
-- `src/Icon.jsx` – inline SVG icon set
+Christine Bharosi
+Overview: Task Management Web App
+Technologies Used: HTML, React, Redux, Javascript.
+Ways to improve: API for school/university learning platforms. Mobile app access, More themes.
