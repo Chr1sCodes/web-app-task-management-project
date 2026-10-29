@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { useTheme } from "./useTheme";
 
 export const PAGES = [
   { id: "todo", label: "To Do", icon: "list" },
@@ -7,6 +8,9 @@ export const PAGES = [
 ];
 
 export default function NavBar({ current }) {
+  const [theme, toggleTheme] = useTheme();
+  const next = theme === "dark" ? "light" : "dark";
+
   return (
     <header className="navbar">
       <a className="brand" href="#/todo" aria-label="Tasks home">
@@ -29,6 +33,16 @@ export default function NavBar({ current }) {
           ))}
         </ul>
       </nav>
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${next} mode`}
+        title={`Switch to ${next} mode`}
+      >
+        <Icon name={theme === "dark" ? "moon" : "sun"} size={16} />
+        <span>{theme === "dark" ? "Dark" : "Light"}</span>
+      </button>
     </header>
   );
 }

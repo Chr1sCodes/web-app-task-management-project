@@ -12,7 +12,7 @@ A front-end app for managing to-do lists, built with React, Redux Toolkit, and V
 - Optional due dates (shown as "Today" / "Overdue") and color-coded priority levels
 - Progress bar showing completed vs. total tasks
 - Filter by All / Active / Completed, search, and clear completed items
-- Responsive layout with automatic light/dark mode; syncs across open browser tabs
+- Responsive layout with a light/dark mode toggle in the navigation bar (defaults to your system setting, remembers your choice); syncs across open browser tabs
 
 ## Running
 
@@ -30,7 +30,8 @@ npm run preview  # serve the production build
 - `src/todosSlice.js` – Redux slice with list/item CRUD reducers and selectors
 - `src/store.js` – store setup, `localStorage` persistence, cross-tab sync
 - `src/App.jsx` – top-level layout and hash-based page routing
-- `src/NavBar.jsx` – top navigation bar
+- `src/NavBar.jsx` – top navigation bar with theme toggle
+- `src/useTheme.js` – light/dark theme state and persistence
 - `src/TodoPage.jsx` – lists sidebar, item form, filters, search
 - `src/CalendarPage.jsx` – monthly calendar of tasks by due date
 - `src/ContactPage.jsx` – contact form
