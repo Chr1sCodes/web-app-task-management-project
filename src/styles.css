@@ -276,6 +276,8 @@ input[type="date"]:hover, select:hover { border-color: var(--subtle); }
   outline: none;
 }
 .composer-input::placeholder { color: var(--subtle); }
+.composer.invalid { border-color: var(--danger); box-shadow: 0 0 0 3px var(--danger-soft); }
+.composer-hint { margin: -4px 10px 8px; font-size: 13px; color: var(--danger); }
 .composer-row, .edit-row { display: flex; align-items: center; gap: 8px; padding: 0 4px; flex-wrap: wrap; }
 .spacer { flex: 1; }
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectLists, selectActiveList, listSelected, listCreated, listRenamed, listDeleted,
@@ -16,6 +16,8 @@ export default function TodoPage() {
 
   const [newList, setNewList] = useState("");
   const [text, setText] = useState("");
+  const [showHint, setShowHint] = useState(false);
+  const taskInputRef = useRef(null);
   const [due, setDue] = useState("");
   const [priority, setPriority] = useState("medium");
   const [filter, setFilter] = useState("all");
@@ -34,11 +36,17 @@ export default function TodoPage() {
   const addItem = (e) => {
     e.preventDefault();
     const t = text.trim();
-    if (!t) return;
+    if (!t) {
+      setShowHint(true);
+      taskInputRef.current?.focus();
+      return;
+    }
     dispatch(itemCreated({ text: t, due, priority }));
     setText("");
     setDue("");
     setPriority("medium");
+    setShowHint(false);
+    taskInputRef.current?.focus();
   };
 
   const startRename = () => {
@@ -143,11 +151,18 @@ export default function TodoPage() {
               <span className="progress-text">{done} of {items.length} done</span>
             </div>
 
-            <form className="composer" onSubmit={addItem}>
+            <form className={`composer${showHint ? " invalid" : ""}`} onSubmit={addItem} noValidate>
               <input
-                className="composer-input" type="text" value={text} onChange={(e) => setText(e.target.value)}
+                ref={taskInputRef}
+                className="composer-input" type="text" value={text}
+                onChange={(e) => {
+                  setText(e.target.value);
+                  if (showHint) setShowHint(false);
+                }}
                 placeholder="Add a task…" maxLength={200} aria-label="New item"
+                aria-invalid={showHint} aria-describedby={showHint ? "task-hint" : undefined}
               />
+              {showHint && <p id="task-hint" className="composer-hint" role="alert">Type a task first.</p>}
               <div className="composer-row">
                 <input type="date" value={due} onChange={(e) => setDue(e.target.value)} aria-label="Due date" />
                 <select value={priority} onChange={(e) => setPriority(e.target.value)} aria-label="Priority">
@@ -156,7 +171,7 @@ export default function TodoPage() {
                   <option value="high">High priority</option>
                 </select>
                 <div className="spacer" />
-                <button type="submit" className="btn btn-primary" disabled={!text.trim()}>
+                <button type="submit" className="btn btn-primary">
                   <Icon name="plus" size={16} /> Add task
                 </button>
               </div>
