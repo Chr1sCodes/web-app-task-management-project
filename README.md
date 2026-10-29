@@ -4,11 +4,12 @@ A front-end app for managing to-do lists, built with React, Redux Toolkit, and V
 
 ## Features
 
-- **Lists:** create, switch between, rename, and delete multiple to-do lists
-- **Items:** create, view, edit (✏️ or double-click), complete, and delete items
-- Optional due dates (overdue items are highlighted) and priority levels
+- **Lists:** create, switch between, rename (inline), and delete multiple to-do lists
+- **Items:** create, view, edit inline (edit icon or double-click), complete, and delete items
+- Optional due dates (shown as "Today" / "Overdue") and color-coded priority levels
+- Progress bar showing completed vs. total tasks
 - Filter by All / Active / Completed, search, and clear completed items
-- Responsive layout; syncs across open browser tabs
+- Responsive layout with automatic light/dark mode; syncs across open browser tabs
 
 ## Running
 
@@ -27,3 +28,4 @@ npm run preview  # serve the production build
 - `src/store.js` – store setup, `localStorage` persistence, cross-tab sync
 - `src/App.jsx` – lists sidebar, item form, filters, search
 - `src/TodoItem.jsx` – single item with inline editing
+- `src/Icon.jsx` – inline SVG icon set
