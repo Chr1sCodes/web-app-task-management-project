@@ -7,7 +7,7 @@ import {
 import TodoItem from "./TodoItem";
 import Icon from "./Icon";
 
-const FILTERS = ["all", "active", "completed"];
+const FILTERS = ["all", "incomplete", "completed"];
 
 export default function TodoPage() {
   const dispatch = useDispatch();
@@ -73,7 +73,7 @@ export default function TodoPage() {
   const q = search.trim().toLowerCase();
   const items = list?.items ?? [];
   const visible = items.filter((i) => {
-    if (filter === "active" && i.completed) return false;
+    if (filter === "incomplete" && i.completed) return false;
     if (filter === "completed" && !i.completed) return false;
     return !q || i.text.toLowerCase().includes(q);
   });
