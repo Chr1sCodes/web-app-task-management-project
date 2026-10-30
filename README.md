@@ -31,6 +31,8 @@ The app is deployed automatically by [.github/workflows/deploy.yml](.github/work
 
 One-time setup: in the repository on GitHub, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 
+Do not use **Deploy from a branch**: it publishes the unbuilt source and can overwrite the workflow's production deployment, leaving a blank page. After changing the source, open **Actions → Deploy to GitHub Pages → Run workflow**, select `main`, and run it.
+
 The site is then available at `https://<username>.github.io/<repo-name>/`. The build uses relative asset paths (`base: "./"` in `vite.config.js`) and hash-based routes (`#/todo`, `#/calendar`, `#/contact`), so it works from a repository subpath without any 404 fallbacks.
 
 ## Structure
