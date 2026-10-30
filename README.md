@@ -25,6 +25,14 @@ npm run build    # production build to dist/
 npm run preview  # serve the production build
 ```
 
+## Deploying to GitHub Pages
+
+The app is deployed automatically by [.github/workflows/deploy.yml](.github/workflows/deploy.yml) on every push to `main`.
+
+One-time setup: in the repository on GitHub, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+
+The site is then available at `https://<username>.github.io/<repo-name>/`. The build uses relative asset paths (`base: "./"` in `vite.config.js`) and hash-based routes (`#/todo`, `#/calendar`, `#/contact`), so it works from a repository subpath without any 404 fallbacks.
+
 ## Structure
 
 - `src/todosSlice.js` – Redux slice with list/item CRUD reducers and selectors
@@ -37,3 +45,4 @@ npm run preview  # serve the production build
 - `src/ContactPage.jsx` – contact form
 - `src/TodoItem.jsx` – single item with inline editing
 - `src/Icon.jsx` – inline SVG icon set
+- `.github/workflows/deploy.yml` – builds and deploys to GitHub Pages
