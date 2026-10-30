@@ -46,3 +46,10 @@ The site is then available at `https://<username>.github.io/<repo-name>/`. The b
 - `src/TodoItem.jsx` – single item with inline editing
 - `src/Icon.jsx` – inline SVG icon set
 - `.github/workflows/deploy.yml` – builds and deploys to GitHub Pages
+
+## Project Overview
+
+Christine Bharosi
+Overview: Task Management Web App
+Technologies Used: HTML, React, Redux, Javascript.
+Ways to improve: API for school/university learning platforms. Mobile app access, More themes.
